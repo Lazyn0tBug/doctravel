@@ -21,20 +21,25 @@
   </div>
 </template>
 
-<script>
-import Category from '../components/Menu/Category.vue'
+<script setup>
+import { watch, ref } from 'vue';
+import Category from '../components/Menu/Category.vue';
 
-export default {
-  name: 'Menu',
-  components: { Category },
-  props: { show: Boolean, scrollTop: Boolean },
-  emits: ['toggle-menu-show'],
-  watch: {
-    scrollTop() {
-      this.$refs.mobileMenu.scrollTo(0, 0)
-    }
+const props = defineProps({
+  show: Boolean,
+  scrollTop: Boolean
+});
+
+const emit = defineEmits(['toggle-menu-show']);
+
+const mobileMenu = ref(null);
+
+watch(
+  () => props.scrollTop,
+  () => {
+    mobileMenu.value.scrollTo(0, 0);
   }
-}
+);
 </script>
 
 <style lang="scss" scoped>

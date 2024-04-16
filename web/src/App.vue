@@ -1,6 +1,6 @@
 <template>
   <!-- <Menu :showMenu="showMenu" @toggle-menu="toggleMenu" /> -->
-  <Menu :show="showMenu" :scrollTop="scrollTop" @toggle-menu-show="toggleMenu" ref="mobileMenu" />
+  <!-- <Menu :show="showMenu" :scrollTop="scrollTop" @toggle-menu-show="toggleMenu" ref="mobileMenu" /> -->
   <!--
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
@@ -13,21 +13,16 @@
     </div>
   </header>
       -->
-      <div
-    :class="[
-      'wrapper',
-      showMenu || showCart || showConfirmation ? 'stop-scroll' : '',
-    ]"
-  >
-<router-view
+  <div :class="['wrapper', showMenu || showCart || showConfirmation ? 'stop-scroll' : '']">
+    <router-view
       @toggle-menu-show="toggleMenu"
       @add-to-cart="addToCart"
       @empty-cart="emptyCart"
       :cart="cart"
       :showConfirmation="showConfirmation"
     />
-  <Footer />
-      </div>
+    <Footer />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -124,15 +119,14 @@ onMounted(() => {
 })
 </script>
 
-
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;500;600;700;800&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Manrope", sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
 
 html {

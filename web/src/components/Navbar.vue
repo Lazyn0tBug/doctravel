@@ -9,27 +9,62 @@
     /></router-link>
     <ul class="navbar__desktop-menu">
       <li class="navbar__desktop-menu__link">
-        <router-link to="/">Home</router-link>
-        <router-link to="/category/headphones">Headphones</router-link>
-        <router-link to="/category/speakers">Speakers</router-link>
-        <router-link to="/category/earphones">Earphones</router-link>
+        <router-link to="/">{{ $t('message.home') }}</router-link>
+        <router-link to="/category/headphones">{{ $t('message.physical') }}</router-link>
+        <router-link to="/category/speakers">{{ $t('message.medical') }}</router-link>
+        <router-link to="/category/earphones">{{ $t('message.referral') }}</router-link>
       </li>
     </ul>
     <button class="navbar__cart-btn" @click="$emit('toggle-menu-show', 'cart')"></button>
+    <div class="navbar__lang-switch">
+    <select v-model="$i18n.locale">
+      <option v-for="locale in $i18n.availableLocales" :key="`locale-${locale}`" :value="locale">{{ locale }}</option>
+    </select>
+  </div>
   </nav>
 </template>
 
-<script>
-export default {
-  name: 'Navbar',
-  data() {
-    return { myVar: 'hello' }
-  },
-  emits: ['toggle-menu-show']
-}
+<script setup>
+import { ref, watch} from 'vue';
+
+const myVar = ref('hello');
+// 创建一个响应式的引用来存储当前选中的语言
+/* const selectedLanguage = ref(i18n.global.locale.value); */
+
+const emit = defineEmits(['toggle-menu-show']);
+
+/* function switchLanguage(event) { */
+/*   locale.value = event.target.value */
+/*   selectedLanguage.value = event.target.value; */
+/* } */
+
+// 创建一个函数来处理语言切换
+/* const changeLocale = () => { */
+/*   i18n.global.locale.value = selectedLanguage.value */
+/* } */
+
+// 使用 watchEffect 来监听语言的变化
+/* watchEffect(() => { */
+/*   console.log(`Current locale changed to: ${i18n.global.locale.value}`) */
+/* }) */
+
 </script>
 
 <style lang="scss" scoped>
+/* navbar.scss */
+.navbar__lang-switch {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 1rem;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+}
+
 .navbar {
   background: transparent;
   display: flex;

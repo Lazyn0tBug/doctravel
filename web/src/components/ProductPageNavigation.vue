@@ -7,14 +7,9 @@
   <AboutSection />
 </template>
 
-<script>
+<script setup>
 import Category from '../components/Homepage/Category.vue'
 import AboutSection from '../components/Homepage/AboutSection.vue'
-
-export default {
-  name: 'ProductPageNavigation',
-  components: { Category, AboutSection }
-}
 </script>
 
 <style lang="scss" scoped>
