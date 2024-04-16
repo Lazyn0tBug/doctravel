@@ -42,7 +42,13 @@ const routes: RouteDefinition[] = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
 })
+
+// 添加全局前置守卫来处理导航栏的状态
+router.beforeEach((to, from, next) => {
+  // 你可以在这里添加逻辑来处理导航栏的显示或隐藏
+  next(); // 不要忘记调用 next() 来继续路由导航
+});
 
 export default router

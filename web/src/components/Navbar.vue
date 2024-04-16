@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav :class="{ 'fixed': isFixed }" class="navbar">
     <button class="navbar__mobile-menu-btn" @click="$emit('toggle-menu-show', 'menu')"></button>
     <router-link @click="$emit('toggle-menu-show', 'logo')" to="/" class="navbar__homeLink">
       <img
@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import { ref, watch} from 'vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue';
 
 const myVar = ref('hello');
 // 创建一个响应式的引用来存储当前选中的语言
@@ -47,6 +47,23 @@ const emit = defineEmits(['toggle-menu-show']);
 /* watchEffect(() => { */
 /*   console.log(`Current locale changed to: ${i18n.global.locale.value}`) */
 /* }) */
+
+const isFixed = ref(false);
+
+function handleScroll() {
+  // 根据滚动位置设置 isFixed 的值
+  isFixed.value = window.scrollY > 20; // 例如，当滚动超过50px时，设置导航栏为固定状态
+}
+
+onMounted(() => {
+  // 组件挂载后，添加滚动事件监听
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  // 组件卸载前，移除滚动事件监听
+  window.removeEventListener('scroll', handleScroll);
+});
 
 </script>
 
@@ -71,9 +88,13 @@ const emit = defineEmits(['toggle-menu-show']);
   align-items: center;
   justify-content: space-between;
   padding: 3.2rem 2.4rem;
-  position: relative;
+  position: fixed;
   border-bottom: 0.1rem solid #353535;
-  z-index: 3;
+  top: 0;
+  z-index: 3000;
+  background-color: #343434;
+  opacity: 0.5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   @media (min-width: 768px) {
     justify-content: flex-start;
