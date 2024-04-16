@@ -10,27 +10,25 @@
         />
         <ul class="footer__content__first-line__link-list">
           <li class="footer__content__first-line__link-list__link">
-            <router-link @click="scrollToTop" to="/">Home</router-link>
+            <router-link @click="scrollToTop" to="/">{{ $t('message.home') }}</router-link>
           </li>
           <li class="footer__content__first-line__link-list__link">
-            <router-link @click="scrollToTop" to="/category/headphones">Headphones</router-link>
+            <router-link @click="scrollToTop" to="/category/headphones">{{ $t('message.physical') }}</router-link>
           </li>
           <li class="footer__content__first-line__link-list__link">
-            <router-link @click="scrollToTop" to="/category/speakers">Speakers</router-link>
+            <router-link @click="scrollToTop" to="/category/speakers">{{ $t('message.medical') }}</router-link>
           </li>
           <li class="footer__content__first-line__link-list__link">
-            <router-link @click="scrollToTop" to="/category/earphones">Earphones</router-link>
+            <router-link @click="scrollToTop" to="/category/earphones">{{ $t('message.referral') }}</router-link>
           </li>
         </ul>
       </div>
       <p class="footer__content__text">
-        Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music
-        lovers and sound specialists who are devoted to helping you get the most out of personal
-        audio. Come and visit our demo facility - we’re open 7 days a week.
+      镜心堂赴日高端医旅私人订制，致力于为高净值客户提供赴日高端精密体检、先端再生医疗医美、慢病跟踪治疗等方向完美体验，附带旅游观光一条龙医旅服务。我们针对贵宾个体需求，通过搭建强大医疗网络，为贵宾特别订制最先进的医疗设施和专业团队，确保贵宾享受到优质前沿的个性化医疗服务。
       </p>
       <div class="footer__content__copyright-section">
         <p class="footer__content__copyright-section__copyright-text">
-          Copyright 2021. All Rights Reserved
+          Copyright 2022. All Rights Reserved
         </p>
         <ul class="footer__content__copyright-section__social-media-links">
           <li class="footer__content__copyright-section__social-media-links__link">
