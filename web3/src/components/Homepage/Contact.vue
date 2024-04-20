@@ -61,7 +61,7 @@
           </div>
         </div>
       </div>
-
+<!--
       <div class="w-full md:w-1/2">
         <div class="ml-3 md:ml-12 wow fadeIn">
           <h2 class="uppercase font-bold text-xl text-gray-700 mb-5">Get In Touch</h2>
@@ -93,6 +93,7 @@
           </div>
         </div>
       </div>
+-->
     </div>
   </section>
   <!-- Contact Section End -->
